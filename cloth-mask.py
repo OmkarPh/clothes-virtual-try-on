@@ -8,11 +8,12 @@ import torch.nn.functional as F
 import torchvision.transforms as transforms
 
 from networks.u2net import U2NET
+from base_dir import BASE_DIR
 device = 'cuda'
 
-image_dir = '/content/inputs/test/cloth'
-result_dir = '/content/inputs/test/cloth-mask'
-checkpoint_path = 'cloth_segm_u2net_latest.pth'
+image_dir = f"{BASE_DIR}/inputs/test/cloth"
+result_dir = f"{BASE_DIR}/inputs/test/cloth-mask"
+checkpoint_path = f"{BASE_DIR}/cloth_segm_u2net_latest.pth"
 
 def load_checkpoint_mgpu(model, checkpoint_path):
     if not os.path.exists(checkpoint_path):

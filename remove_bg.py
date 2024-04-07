@@ -3,6 +3,7 @@ import os
 from PIL import Image
 import numpy as np
 from rembg import remove
+from base_dir import BASE_DIR
 
 
 class preprcessInput:
@@ -52,8 +53,8 @@ class preprcessInput:
 
 # USAGE OF THE CLASS
 preprocess = preprcessInput()
-for images in os.listdir('/content/inputs/test/image'):
-    print(images)
-    if images[-3:] == 'jpg':
-        op = preprocess.remove_bg(r'/content/inputs/test/image/'+images)
+for image in os.listdir(f"{BASE_DIR}/inputs/test/image"):
+    print(image)
+    if image[-3:] == 'jpg':
+        op = preprocess.remove_bg(f"{BASE_DIR}/inputs/test/image/{image}")
         arr = preprocess.transform(768, 1024)
